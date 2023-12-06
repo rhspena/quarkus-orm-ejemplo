@@ -51,3 +51,10 @@ If you want to learn more about building native executables, please consult http
 
 - Hibernate ORM ([guide](https://quarkus.io/guides/hibernate-orm)): Define your persistent model with Hibernate ORM and Jakarta Persistence
 - Agroal - Database connection pool ([guide](https://quarkus.io/guides/datasource)): Pool JDBC database connections (included in Hibernate ORM)
+
+  
+## Contenedor de Base de datos
+
+- podman pod create --name db -p 9876:80 -p 5432:5432
+- podman run --pod db -d -e PGADMIN_DEFAULT_EMAIL=usuario@dominio.com -e PGADMIN_DEFAULT_PASSWORD=redhattemp2023 --name postgre-admin docker.io/dpage/pgadmin4:latest
+- podman run -v postgresql-data:/var/lib/postgresql/data:Z --name postgresql --pod db -d -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=redhattemp2023 docker.io/library/postgres:13
